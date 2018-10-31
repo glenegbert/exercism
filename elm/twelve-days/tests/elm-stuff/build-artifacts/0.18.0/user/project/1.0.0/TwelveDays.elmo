@@ -1,0 +1,87 @@
+var _user$project$TwelveDays$intOrdinal = _elm_lang$core$Dict$fromList(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 1, _1: 'first'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 2, _1: 'second'},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 3, _1: 'third'},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 4, _1: 'fourth'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 5, _1: 'fifth'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 6, _1: 'sixth'},
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			}
+		}
+	});
+var _user$project$TwelveDays$intSecondPart = _elm_lang$core$Dict$fromList(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 1, _1: 'and a Partridge in a Pear Tree.'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 2, _1: 'two Turtle Doves'},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 3, _1: 'three French Hens'},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 4, _1: 'four Calling Birds'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 5, _1: 'five Gold Rings'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 6, _1: 'six Geese-a-Laying'},
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			}
+		}
+	});
+var _user$project$TwelveDays$firstPart = function (num) {
+	return A2(
+		_elm_lang$core$Basics_ops['++'],
+		'On the ',
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			A2(
+				_elm_lang$core$Maybe$withDefault,
+				' ',
+				A2(_elm_lang$core$Dict$get, num, _user$project$TwelveDays$intOrdinal)),
+			' day of Christmas my true love gave to me, '));
+};
+var _user$project$TwelveDays$secondPart = function (num) {
+	return _elm_lang$core$Native_Utils.eq(num, 1) ? 'a Partridge in a Pear Tree.' : A2(
+		_elm_lang$core$String$join,
+		', ',
+		_elm_lang$core$List$reverse(
+			A2(
+				_elm_lang$core$List$take,
+				num,
+				_elm_lang$core$Dict$values(_user$project$TwelveDays$intSecondPart))));
+};
+var _user$project$TwelveDays$verse = function (num) {
+	return A2(
+		_elm_lang$core$Basics_ops['++'],
+		_user$project$TwelveDays$firstPart(num),
+		_user$project$TwelveDays$secondPart(num));
+};
+var _user$project$TwelveDays$recite = F2(
+	function (firstVerseNumber, lastVerseNumber) {
+		return A2(
+			_elm_lang$core$List$map,
+			_user$project$TwelveDays$verse,
+			A2(_elm_lang$core$List$range, firstVerseNumber, lastVerseNumber));
+	});

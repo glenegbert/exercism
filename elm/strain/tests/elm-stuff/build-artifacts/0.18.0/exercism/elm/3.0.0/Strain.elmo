@@ -1,0 +1,21 @@
+var _exercism$elm$Strain$conditionalCons = F3(
+	function (pred, a, list) {
+		return pred(a) ? {ctor: '::', _0: a, _1: list} : list;
+	});
+var _exercism$elm$Strain$keep = F2(
+	function (predicate, list) {
+		return A3(
+			_elm_lang$core$List$foldr,
+			_exercism$elm$Strain$conditionalCons(predicate),
+			{ctor: '[]'},
+			list);
+	});
+var _exercism$elm$Strain$discard = F2(
+	function (predicate, list) {
+		return A2(
+			_exercism$elm$Strain$keep,
+			function (_p0) {
+				return !predicate(_p0);
+			},
+			list);
+	});

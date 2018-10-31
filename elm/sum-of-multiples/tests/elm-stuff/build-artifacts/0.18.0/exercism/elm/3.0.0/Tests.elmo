@@ -1,0 +1,156 @@
+var _exercism$elm$Tests$tests = A2(
+	_elm_community$elm_test$Test$describe,
+	'Sum Of Multiples',
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_community$elm_test$Test$test,
+			'[3, 5] 15',
+			function (_p0) {
+				var _p1 = _p0;
+				return A2(
+					_elm_community$elm_test$Expect$equal,
+					45,
+					A2(
+						_exercism$elm$SumOfMultiples$sumOfMultiples,
+						{
+							ctor: '::',
+							_0: 3,
+							_1: {
+								ctor: '::',
+								_0: 5,
+								_1: {ctor: '[]'}
+							}
+						},
+						15));
+			}),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_elm_community$elm_test$Test$test,
+				'[7, 13, 17] 20',
+				function (_p2) {
+					var _p3 = _p2;
+					return A2(
+						_elm_community$elm_test$Expect$equal,
+						51,
+						A2(
+							_exercism$elm$SumOfMultiples$sumOfMultiples,
+							{
+								ctor: '::',
+								_0: 7,
+								_1: {
+									ctor: '::',
+									_0: 13,
+									_1: {
+										ctor: '::',
+										_0: 17,
+										_1: {ctor: '[]'}
+									}
+								}
+							},
+							20));
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_community$elm_test$Test$test,
+					'[4, 6] 15',
+					function (_p4) {
+						var _p5 = _p4;
+						return A2(
+							_elm_community$elm_test$Expect$equal,
+							30,
+							A2(
+								_exercism$elm$SumOfMultiples$sumOfMultiples,
+								{
+									ctor: '::',
+									_0: 4,
+									_1: {
+										ctor: '::',
+										_0: 6,
+										_1: {ctor: '[]'}
+									}
+								},
+								15));
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_community$elm_test$Test$test,
+						'[5, 6, 8] 150',
+						function (_p6) {
+							var _p7 = _p6;
+							return A2(
+								_elm_community$elm_test$Expect$equal,
+								4419,
+								A2(
+									_exercism$elm$SumOfMultiples$sumOfMultiples,
+									{
+										ctor: '::',
+										_0: 5,
+										_1: {
+											ctor: '::',
+											_0: 6,
+											_1: {
+												ctor: '::',
+												_0: 8,
+												_1: {ctor: '[]'}
+											}
+										}
+									},
+									150));
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_community$elm_test$Test$test,
+							'[43, 47] 10000',
+							function (_p8) {
+								var _p9 = _p8;
+								return A2(
+									_elm_community$elm_test$Expect$equal,
+									2203160,
+									A2(
+										_exercism$elm$SumOfMultiples$sumOfMultiples,
+										{
+											ctor: '::',
+											_0: 43,
+											_1: {
+												ctor: '::',
+												_0: 47,
+												_1: {ctor: '[]'}
+											}
+										},
+										10000));
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_community$elm_test$Test$test,
+								'[5, 25] 51',
+								function (_p10) {
+									var _p11 = _p10;
+									return A2(
+										_elm_community$elm_test$Expect$equal,
+										275,
+										A2(
+											_exercism$elm$SumOfMultiples$sumOfMultiples,
+											{
+												ctor: '::',
+												_0: 5,
+												_1: {
+													ctor: '::',
+													_0: 25,
+													_1: {ctor: '[]'}
+												}
+											},
+											51));
+								}),
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			}
+		}
+	});

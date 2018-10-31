@@ -1,0 +1,53 @@
+var _exercism$elm$RNATranscription$dToR = _elm_lang$core$Dict$fromList(
+	{
+		ctor: '::',
+		_0: {
+			ctor: '_Tuple2',
+			_0: _elm_lang$core$Native_Utils.chr('C'),
+			_1: _elm_lang$core$Native_Utils.chr('G')
+		},
+		_1: {
+			ctor: '::',
+			_0: {
+				ctor: '_Tuple2',
+				_0: _elm_lang$core$Native_Utils.chr('G'),
+				_1: _elm_lang$core$Native_Utils.chr('C')
+			},
+			_1: {
+				ctor: '::',
+				_0: {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.chr('T'),
+					_1: _elm_lang$core$Native_Utils.chr('A')
+				},
+				_1: {
+					ctor: '::',
+					_0: {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.chr('A'),
+						_1: _elm_lang$core$Native_Utils.chr('U')
+					},
+					_1: {ctor: '[]'}
+				}
+			}
+		}
+	});
+var _exercism$elm$RNATranscription$toR = function (c) {
+	return A2(
+		_elm_lang$core$Result$map,
+		_elm_lang$core$String$fromChar,
+		A2(
+			_elm_lang$core$Result$fromMaybe,
+			'error',
+			A2(_elm_lang$core$Dict$get, c, _exercism$elm$RNATranscription$dToR)));
+};
+var _exercism$elm$RNATranscription$toRNA = function (dna) {
+	return A3(
+		_elm_lang$core$List$foldr,
+		_elm_lang$core$Result$map2(_elm_lang$core$String$append),
+		_elm_lang$core$Result$Ok(''),
+		A2(
+			_elm_lang$core$List$map,
+			_exercism$elm$RNATranscription$toR,
+			_elm_lang$core$String$toList(dna)));
+};

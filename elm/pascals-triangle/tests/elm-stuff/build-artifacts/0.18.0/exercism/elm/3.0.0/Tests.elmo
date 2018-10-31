@@ -1,0 +1,202 @@
+var _exercism$elm$Tests$tests = A2(
+	_elm_community$elm_test$Test$describe,
+	'Triangle',
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_community$elm_test$Test$test,
+			'no rows',
+			function (_p0) {
+				var _p1 = _p0;
+				return A2(
+					_elm_community$elm_test$Expect$equal,
+					{ctor: '[]'},
+					_exercism$elm$Triangle$rows(0));
+			}),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_elm_community$elm_test$Test$test,
+				'single row',
+				function (_p2) {
+					var _p3 = _p2;
+					return A2(
+						_elm_community$elm_test$Expect$equal,
+						{
+							ctor: '::',
+							_0: {
+								ctor: '::',
+								_0: 1,
+								_1: {ctor: '[]'}
+							},
+							_1: {ctor: '[]'}
+						},
+						_exercism$elm$Triangle$rows(1));
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_community$elm_test$Test$test,
+					'two rows',
+					function (_p4) {
+						var _p5 = _p4;
+						return A2(
+							_elm_community$elm_test$Expect$equal,
+							{
+								ctor: '::',
+								_0: {
+									ctor: '::',
+									_0: 1,
+									_1: {ctor: '[]'}
+								},
+								_1: {
+									ctor: '::',
+									_0: {
+										ctor: '::',
+										_0: 1,
+										_1: {
+											ctor: '::',
+											_0: 1,
+											_1: {ctor: '[]'}
+										}
+									},
+									_1: {ctor: '[]'}
+								}
+							},
+							_exercism$elm$Triangle$rows(2));
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_community$elm_test$Test$test,
+						'three rows',
+						function (_p6) {
+							var _p7 = _p6;
+							return A2(
+								_elm_community$elm_test$Expect$equal,
+								{
+									ctor: '::',
+									_0: {
+										ctor: '::',
+										_0: 1,
+										_1: {ctor: '[]'}
+									},
+									_1: {
+										ctor: '::',
+										_0: {
+											ctor: '::',
+											_0: 1,
+											_1: {
+												ctor: '::',
+												_0: 1,
+												_1: {ctor: '[]'}
+											}
+										},
+										_1: {
+											ctor: '::',
+											_0: {
+												ctor: '::',
+												_0: 1,
+												_1: {
+													ctor: '::',
+													_0: 2,
+													_1: {
+														ctor: '::',
+														_0: 1,
+														_1: {ctor: '[]'}
+													}
+												}
+											},
+											_1: {ctor: '[]'}
+										}
+									}
+								},
+								_exercism$elm$Triangle$rows(3));
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_community$elm_test$Test$test,
+							'four rows',
+							function (_p8) {
+								var _p9 = _p8;
+								return A2(
+									_elm_community$elm_test$Expect$equal,
+									{
+										ctor: '::',
+										_0: {
+											ctor: '::',
+											_0: 1,
+											_1: {ctor: '[]'}
+										},
+										_1: {
+											ctor: '::',
+											_0: {
+												ctor: '::',
+												_0: 1,
+												_1: {
+													ctor: '::',
+													_0: 1,
+													_1: {ctor: '[]'}
+												}
+											},
+											_1: {
+												ctor: '::',
+												_0: {
+													ctor: '::',
+													_0: 1,
+													_1: {
+														ctor: '::',
+														_0: 2,
+														_1: {
+															ctor: '::',
+															_0: 1,
+															_1: {ctor: '[]'}
+														}
+													}
+												},
+												_1: {
+													ctor: '::',
+													_0: {
+														ctor: '::',
+														_0: 1,
+														_1: {
+															ctor: '::',
+															_0: 3,
+															_1: {
+																ctor: '::',
+																_0: 3,
+																_1: {
+																	ctor: '::',
+																	_0: 1,
+																	_1: {ctor: '[]'}
+																}
+															}
+														}
+													},
+													_1: {ctor: '[]'}
+												}
+											}
+										}
+									},
+									_exercism$elm$Triangle$rows(4));
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_community$elm_test$Test$test,
+								'negative rows',
+								function (_p10) {
+									var _p11 = _p10;
+									return A2(
+										_elm_community$elm_test$Expect$equal,
+										{ctor: '[]'},
+										_exercism$elm$Triangle$rows(-1));
+								}),
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			}
+		}
+	});

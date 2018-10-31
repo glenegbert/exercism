@@ -1,0 +1,26 @@
+var _exercism$elm$SumOfMultiples$fromMultiple = F2(
+	function (limit, mult) {
+		var rang = A2(_elm_lang$core$List$range, 1, ((limit - 1) / mult) | 0);
+		return A2(
+			_elm_lang$core$List$map,
+			function (n) {
+				return n * mult;
+			},
+			rang);
+	});
+var _exercism$elm$SumOfMultiples$sumOfMultiples = F2(
+	function (multiples, limit) {
+		return A3(
+			_elm_lang$core$Set$foldr,
+			F2(
+				function (x, y) {
+					return x + y;
+				}),
+			0,
+			_elm_lang$core$Set$fromList(
+				_elm_lang$core$List$concat(
+					A2(
+						_elm_lang$core$List$map,
+						_exercism$elm$SumOfMultiples$fromMultiple(limit),
+						multiples))));
+	});

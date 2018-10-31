@@ -1,0 +1,32 @@
+var _exercism$elm$Triangle$nextValues = F2(
+	function (start, list) {
+		var _p0 = list;
+		if (_p0.ctor === '::') {
+			var _p1 = _p0._0;
+			return A2(
+				_elm_lang$core$List$append,
+				{
+					ctor: '::',
+					_0: start + _p1,
+					_1: {ctor: '[]'}
+				},
+				A2(_exercism$elm$Triangle$nextValues, _p1, _p0._1));
+		} else {
+			return {
+				ctor: '::',
+				_0: start,
+				_1: {ctor: '[]'}
+			};
+		}
+	});
+var _exercism$elm$Triangle$rows = function (nu) {
+	return (_elm_lang$core$Native_Utils.cmp(nu, 0) < 1) ? {ctor: '[]'} : A3(
+		_elm_lang$core$List$scanl,
+		_exercism$elm$Triangle$nextValues,
+		{
+			ctor: '::',
+			_0: 1,
+			_1: {ctor: '[]'}
+		},
+		A2(_elm_lang$core$List$repeat, nu - 1, 0));
+};

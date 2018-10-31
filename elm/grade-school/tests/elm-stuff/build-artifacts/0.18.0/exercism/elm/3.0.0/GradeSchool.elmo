@@ -1,0 +1,24 @@
+var _exercism$elm$GradeSchool$allStudents = function (school) {
+	return _elm_lang$core$Dict$toList(school);
+};
+var _exercism$elm$GradeSchool$studentsInGrade = F2(
+	function (grade, school) {
+		return A2(
+			_elm_lang$core$Maybe$withDefault,
+			{ctor: '[]'},
+			A2(_elm_lang$core$Dict$get, grade, school));
+	});
+var _exercism$elm$GradeSchool$addStudent = F3(
+	function (grade, student, school) {
+		var students = {
+			ctor: '::',
+			_0: student,
+			_1: A2(_exercism$elm$GradeSchool$studentsInGrade, grade, school)
+		};
+		return A3(
+			_elm_lang$core$Dict$insert,
+			grade,
+			_elm_lang$core$List$sort(students),
+			school);
+	});
+var _exercism$elm$GradeSchool$empty = _elm_lang$core$Dict$empty;

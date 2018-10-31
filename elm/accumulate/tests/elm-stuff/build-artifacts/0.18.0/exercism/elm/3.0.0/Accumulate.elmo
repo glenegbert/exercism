@@ -1,0 +1,13 @@
+var _exercism$elm$Accumulate$accumulate = F2(
+	function (func, input) {
+		var _p0 = input;
+		if (_p0.ctor === '[]') {
+			return {ctor: '[]'};
+		} else {
+			return {
+				ctor: '::',
+				_0: func(_p0._0),
+				_1: A2(_exercism$elm$Accumulate$accumulate, func, _p0._1)
+			};
+		}
+	});

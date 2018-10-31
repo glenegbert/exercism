@@ -1,0 +1,36 @@
+var _exercism$elm$SpaceAge$planetMap = function (planet) {
+	var _p0 = planet;
+	switch (_p0.ctor) {
+		case 'Earth':
+			return 1.0;
+		case 'Mercury':
+			return 0.2408467;
+		case 'Venus':
+			return 0.61519726;
+		case 'Mars':
+			return 1.8808158;
+		case 'Jupiter':
+			return 11.862615;
+		case 'Saturn':
+			return 29.447498;
+		case 'Uranus':
+			return 84.016846;
+		default:
+			return 164.79132;
+	}
+};
+var _exercism$elm$SpaceAge$planetFactor = function (planet) {
+	return _exercism$elm$SpaceAge$planetMap(planet);
+};
+var _exercism$elm$SpaceAge$ageOn = F2(
+	function (planet, seconds) {
+		return seconds / (31557600 * _exercism$elm$SpaceAge$planetFactor(planet));
+	});
+var _exercism$elm$SpaceAge$Neptune = {ctor: 'Neptune'};
+var _exercism$elm$SpaceAge$Uranus = {ctor: 'Uranus'};
+var _exercism$elm$SpaceAge$Saturn = {ctor: 'Saturn'};
+var _exercism$elm$SpaceAge$Jupiter = {ctor: 'Jupiter'};
+var _exercism$elm$SpaceAge$Mars = {ctor: 'Mars'};
+var _exercism$elm$SpaceAge$Venus = {ctor: 'Venus'};
+var _exercism$elm$SpaceAge$Mercury = {ctor: 'Mercury'};
+var _exercism$elm$SpaceAge$Earth = {ctor: 'Earth'};

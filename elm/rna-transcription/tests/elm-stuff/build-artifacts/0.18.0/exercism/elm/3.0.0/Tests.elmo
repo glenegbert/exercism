@@ -1,0 +1,69 @@
+var _exercism$elm$Tests$tests = A2(
+	_elm_community$elm_test$Test$describe,
+	'RNATranscription',
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_community$elm_test$Test$test,
+			'complement of cytosine is guanine',
+			function (_p0) {
+				var _p1 = _p0;
+				return A2(
+					_elm_community$elm_test$Expect$equal,
+					_elm_lang$core$Result$Ok('G'),
+					_exercism$elm$RNATranscription$toRNA('C'));
+			}),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_elm_community$elm_test$Test$test,
+				'complement of guanine is cytosine',
+				function (_p2) {
+					var _p3 = _p2;
+					return A2(
+						_elm_community$elm_test$Expect$equal,
+						_elm_lang$core$Result$Ok('C'),
+						_exercism$elm$RNATranscription$toRNA('G'));
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_community$elm_test$Test$test,
+					'complement of thymine is adenine',
+					function (_p4) {
+						var _p5 = _p4;
+						return A2(
+							_elm_community$elm_test$Expect$equal,
+							_elm_lang$core$Result$Ok('A'),
+							_exercism$elm$RNATranscription$toRNA('T'));
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_community$elm_test$Test$test,
+						'complement of adenine is uracil',
+						function (_p6) {
+							var _p7 = _p6;
+							return A2(
+								_elm_community$elm_test$Expect$equal,
+								_elm_lang$core$Result$Ok('U'),
+								_exercism$elm$RNATranscription$toRNA('A'));
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_community$elm_test$Test$test,
+							'complement',
+							function (_p8) {
+								var _p9 = _p8;
+								return A2(
+									_elm_community$elm_test$Expect$equal,
+									_elm_lang$core$Result$Ok('UGCACCAGAAUU'),
+									_exercism$elm$RNATranscription$toRNA('ACGTGGTCTTAA'));
+							}),
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		}
+	});

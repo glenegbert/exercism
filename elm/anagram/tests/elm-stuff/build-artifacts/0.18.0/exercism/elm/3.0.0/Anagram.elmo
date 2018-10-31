@@ -1,0 +1,19 @@
+var _exercism$elm$Anagram$sortedChars = function (string) {
+	return _elm_lang$core$List$sort(
+		_elm_lang$core$String$toList(string));
+};
+var _exercism$elm$Anagram$isAnagram = F2(
+	function (word1, word2) {
+		var w2 = _elm_lang$core$String$toLower(word2);
+		var w1 = _elm_lang$core$String$toLower(word1);
+		return _elm_lang$core$Native_Utils.eq(w1, w2) ? false : _elm_lang$core$Native_Utils.eq(
+			_exercism$elm$Anagram$sortedChars(w1),
+			_exercism$elm$Anagram$sortedChars(w2));
+	});
+var _exercism$elm$Anagram$detect = F2(
+	function (word, candidates) {
+		return A2(
+			_elm_lang$core$List$filter,
+			_exercism$elm$Anagram$isAnagram(word),
+			candidates);
+	});

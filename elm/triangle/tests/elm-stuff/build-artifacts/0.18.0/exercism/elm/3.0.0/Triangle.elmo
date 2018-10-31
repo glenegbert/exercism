@@ -1,0 +1,72 @@
+var _exercism$elm$Triangle$invalidLengths = F3(
+	function (x, y, z) {
+		return A2(
+			_elm_lang$core$List$any,
+			function (n) {
+				return _elm_lang$core$Native_Utils.cmp(n, 0) < 1;
+			},
+			{
+				ctor: '::',
+				_0: x,
+				_1: {
+					ctor: '::',
+					_0: y,
+					_1: {
+						ctor: '::',
+						_0: z,
+						_1: {ctor: '[]'}
+					}
+				}
+			});
+	});
+var _exercism$elm$Triangle$violatesInequality = F3(
+	function (x, y, z) {
+		var sorted = _elm_lang$core$List$sort(
+			{
+				ctor: '::',
+				_0: x,
+				_1: {
+					ctor: '::',
+					_0: y,
+					_1: {
+						ctor: '::',
+						_0: z,
+						_1: {ctor: '[]'}
+					}
+				}
+			});
+		return _elm_lang$core$Native_Utils.cmp(
+			_elm_lang$core$List$sum(
+				A2(_elm_lang$core$List$take, 2, sorted)),
+			A2(
+				_elm_lang$core$Maybe$withDefault,
+				0,
+				_elm_lang$core$List$maximum(sorted))) < 0;
+	});
+var _exercism$elm$Triangle$version = 2;
+var _exercism$elm$Triangle$Scalene = {ctor: 'Scalene'};
+var _exercism$elm$Triangle$Isosceles = {ctor: 'Isosceles'};
+var _exercism$elm$Triangle$Equilateral = {ctor: 'Equilateral'};
+var _exercism$elm$Triangle$triangleType = F3(
+	function (x, y, z) {
+		var uniqValues = _elm_lang$core$Set$fromList(
+			{
+				ctor: '::',
+				_0: x,
+				_1: {
+					ctor: '::',
+					_0: y,
+					_1: {
+						ctor: '::',
+						_0: z,
+						_1: {ctor: '[]'}
+					}
+				}
+			});
+		var uniqValuesLength = _elm_lang$core$Set$size(uniqValues);
+		return _elm_lang$core$Native_Utils.eq(uniqValuesLength, 1) ? _elm_lang$core$Result$Ok(_exercism$elm$Triangle$Equilateral) : (_elm_lang$core$Native_Utils.eq(uniqValuesLength, 2) ? _elm_lang$core$Result$Ok(_exercism$elm$Triangle$Isosceles) : _elm_lang$core$Result$Ok(_exercism$elm$Triangle$Scalene));
+	});
+var _exercism$elm$Triangle$triangleKind = F3(
+	function (x, y, z) {
+		return A3(_exercism$elm$Triangle$invalidLengths, x, y, z) ? _elm_lang$core$Result$Err('Invalid lengths') : (A3(_exercism$elm$Triangle$violatesInequality, x, y, z) ? _elm_lang$core$Result$Err('Violates inequality') : A3(_exercism$elm$Triangle$triangleType, x, y, z));
+	});

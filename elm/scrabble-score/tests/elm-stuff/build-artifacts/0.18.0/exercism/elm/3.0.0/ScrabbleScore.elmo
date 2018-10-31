@@ -1,0 +1,238 @@
+var _exercism$elm$ScrabbleScore$valueMap = _elm_lang$core$Dict$fromList(
+	{
+		ctor: '::',
+		_0: {
+			ctor: '_Tuple2',
+			_0: _elm_lang$core$Native_Utils.chr('A'),
+			_1: 1
+		},
+		_1: {
+			ctor: '::',
+			_0: {
+				ctor: '_Tuple2',
+				_0: _elm_lang$core$Native_Utils.chr('E'),
+				_1: 1
+			},
+			_1: {
+				ctor: '::',
+				_0: {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.chr('I'),
+					_1: 1
+				},
+				_1: {
+					ctor: '::',
+					_0: {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.chr('O'),
+						_1: 1
+					},
+					_1: {
+						ctor: '::',
+						_0: {
+							ctor: '_Tuple2',
+							_0: _elm_lang$core$Native_Utils.chr('U'),
+							_1: 1
+						},
+						_1: {
+							ctor: '::',
+							_0: {
+								ctor: '_Tuple2',
+								_0: _elm_lang$core$Native_Utils.chr('L'),
+								_1: 1
+							},
+							_1: {
+								ctor: '::',
+								_0: {
+									ctor: '_Tuple2',
+									_0: _elm_lang$core$Native_Utils.chr('N'),
+									_1: 1
+								},
+								_1: {
+									ctor: '::',
+									_0: {
+										ctor: '_Tuple2',
+										_0: _elm_lang$core$Native_Utils.chr('R'),
+										_1: 1
+									},
+									_1: {
+										ctor: '::',
+										_0: {
+											ctor: '_Tuple2',
+											_0: _elm_lang$core$Native_Utils.chr('S'),
+											_1: 1
+										},
+										_1: {
+											ctor: '::',
+											_0: {
+												ctor: '_Tuple2',
+												_0: _elm_lang$core$Native_Utils.chr('T'),
+												_1: 1
+											},
+											_1: {
+												ctor: '::',
+												_0: {
+													ctor: '_Tuple2',
+													_0: _elm_lang$core$Native_Utils.chr('T'),
+													_1: 1
+												},
+												_1: {
+													ctor: '::',
+													_0: {
+														ctor: '_Tuple2',
+														_0: _elm_lang$core$Native_Utils.chr('G'),
+														_1: 2
+													},
+													_1: {
+														ctor: '::',
+														_0: {
+															ctor: '_Tuple2',
+															_0: _elm_lang$core$Native_Utils.chr('D'),
+															_1: 2
+														},
+														_1: {
+															ctor: '::',
+															_0: {
+																ctor: '_Tuple2',
+																_0: _elm_lang$core$Native_Utils.chr('B'),
+																_1: 3
+															},
+															_1: {
+																ctor: '::',
+																_0: {
+																	ctor: '_Tuple2',
+																	_0: _elm_lang$core$Native_Utils.chr('C'),
+																	_1: 3
+																},
+																_1: {
+																	ctor: '::',
+																	_0: {
+																		ctor: '_Tuple2',
+																		_0: _elm_lang$core$Native_Utils.chr('M'),
+																		_1: 3
+																	},
+																	_1: {
+																		ctor: '::',
+																		_0: {
+																			ctor: '_Tuple2',
+																			_0: _elm_lang$core$Native_Utils.chr('P'),
+																			_1: 3
+																		},
+																		_1: {
+																			ctor: '::',
+																			_0: {
+																				ctor: '_Tuple2',
+																				_0: _elm_lang$core$Native_Utils.chr('F'),
+																				_1: 4
+																			},
+																			_1: {
+																				ctor: '::',
+																				_0: {
+																					ctor: '_Tuple2',
+																					_0: _elm_lang$core$Native_Utils.chr('H'),
+																					_1: 4
+																				},
+																				_1: {
+																					ctor: '::',
+																					_0: {
+																						ctor: '_Tuple2',
+																						_0: _elm_lang$core$Native_Utils.chr('V'),
+																						_1: 4
+																					},
+																					_1: {
+																						ctor: '::',
+																						_0: {
+																							ctor: '_Tuple2',
+																							_0: _elm_lang$core$Native_Utils.chr('W'),
+																							_1: 4
+																						},
+																						_1: {
+																							ctor: '::',
+																							_0: {
+																								ctor: '_Tuple2',
+																								_0: _elm_lang$core$Native_Utils.chr('Y'),
+																								_1: 4
+																							},
+																							_1: {
+																								ctor: '::',
+																								_0: {
+																									ctor: '_Tuple2',
+																									_0: _elm_lang$core$Native_Utils.chr('K'),
+																									_1: 5
+																								},
+																								_1: {
+																									ctor: '::',
+																									_0: {
+																										ctor: '_Tuple2',
+																										_0: _elm_lang$core$Native_Utils.chr('J'),
+																										_1: 8
+																									},
+																									_1: {
+																										ctor: '::',
+																										_0: {
+																											ctor: '_Tuple2',
+																											_0: _elm_lang$core$Native_Utils.chr('X'),
+																											_1: 8
+																										},
+																										_1: {
+																											ctor: '::',
+																											_0: {
+																												ctor: '_Tuple2',
+																												_0: _elm_lang$core$Native_Utils.chr('Q'),
+																												_1: 10
+																											},
+																											_1: {
+																												ctor: '::',
+																												_0: {
+																													ctor: '_Tuple2',
+																													_0: _elm_lang$core$Native_Utils.chr('Z'),
+																													_1: 10
+																												},
+																												_1: {ctor: '[]'}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	});
+var _exercism$elm$ScrabbleScore$charParser = function ($char) {
+	return A2(
+		_elm_lang$core$Maybe$withDefault,
+		0,
+		A2(_elm_lang$core$Dict$get, $char, _exercism$elm$ScrabbleScore$valueMap));
+};
+var _exercism$elm$ScrabbleScore$scoreWord = function (string) {
+	return A3(
+		_elm_lang$core$List$foldr,
+		F2(
+			function (x, y) {
+				return x + y;
+			}),
+		0,
+		A2(
+			_elm_lang$core$List$map,
+			_exercism$elm$ScrabbleScore$charParser,
+			_elm_lang$core$String$toList(
+				_elm_lang$core$String$toUpper(string))));
+};
