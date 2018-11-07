@@ -6039,24 +6039,8 @@ var author$project$Test$Runner$Node$run = F2(
 				update: author$project$Test$Runner$Node$update
 			});
 	});
-var elm$core$Basics$modBy = _Basics_modBy;
-var author$project$CollatzConjecture$isOdd = function (num) {
-	return A2(elm$core$Basics$modBy, 2, num) === 1;
-};
-var author$project$CollatzConjecture$nextNumber = function (num) {
-	return author$project$CollatzConjecture$isOdd(num) ? ((3 * num) + 1) : ((num / 2) | 0);
-};
-var author$project$CollatzConjecture$reduce = function (num) {
-	if (num === 1) {
-		return 0;
-	} else {
-		return author$project$CollatzConjecture$reduce(
-			author$project$CollatzConjecture$nextNumber(num)) + 1;
-	}
-};
-var author$project$CollatzConjecture$collatz = function (start) {
-	return (start <= 0) ? elm$core$Result$Err('Only positive numbers are allowed') : elm$core$Result$Ok(
-		author$project$CollatzConjecture$reduce(start));
+var author$project$TwoFer$twoFer = function (name) {
+	return 'One for ' + (A2(elm$core$Maybe$withDefault, 'you', name) + ', one for me.');
 };
 var elm$core$String$contains = _String_contains;
 var elm$core$String$toInt = _String_toInt;
@@ -6253,62 +6237,37 @@ var elm_explorations$test$Test$test = F2(
 	});
 var author$project$Tests$tests = A2(
 	elm_explorations$test$Test$describe,
-	'CollatzConjecture tests',
+	'Two-fer',
 	_List_fromArray(
 		[
 			A2(
 			elm_explorations$test$Test$test,
-			'zero steps for one',
+			'No name given',
 			function (_n0) {
 				return A2(
 					elm_explorations$test$Expect$equal,
-					elm$core$Result$Ok(0),
-					author$project$CollatzConjecture$collatz(1));
+					'One for you, one for me.',
+					author$project$TwoFer$twoFer(elm$core$Maybe$Nothing));
 			}),
 			A2(
 			elm_explorations$test$Test$test,
-			'divide if even',
+			'A name given',
 			function (_n1) {
 				return A2(
 					elm_explorations$test$Expect$equal,
-					elm$core$Result$Ok(4),
-					author$project$CollatzConjecture$collatz(16));
+					'One for Alice, one for me.',
+					author$project$TwoFer$twoFer(
+						elm$core$Maybe$Just('Alice')));
 			}),
 			A2(
 			elm_explorations$test$Test$test,
-			'even and odd step',
+			'Another name given',
 			function (_n2) {
 				return A2(
 					elm_explorations$test$Expect$equal,
-					elm$core$Result$Ok(9),
-					author$project$CollatzConjecture$collatz(12));
-			}),
-			A2(
-			elm_explorations$test$Test$test,
-			'Large number of even and odd step',
-			function (_n3) {
-				return A2(
-					elm_explorations$test$Expect$equal,
-					elm$core$Result$Ok(152),
-					author$project$CollatzConjecture$collatz(1000000));
-			}),
-			A2(
-			elm_explorations$test$Test$test,
-			'zero is an error',
-			function (_n4) {
-				return A2(
-					elm_explorations$test$Expect$equal,
-					elm$core$Result$Err('Only positive numbers are allowed'),
-					author$project$CollatzConjecture$collatz(0));
-			}),
-			A2(
-			elm_explorations$test$Test$test,
-			'negative values is an error',
-			function (_n5) {
-				return A2(
-					elm_explorations$test$Expect$equal,
-					elm$core$Result$Err('Only positive numbers are allowed'),
-					author$project$CollatzConjecture$collatz(-15));
+					'One for Bob, one for me.',
+					author$project$TwoFer$twoFer(
+						elm$core$Maybe$Just('Bob')));
 			})
 		]));
 var elm_explorations$test$Test$concat = function (tests) {
@@ -6332,14 +6291,14 @@ var elm_explorations$test$Test$concat = function (tests) {
 		}
 	}
 };
-var author$project$Test$Generated$Main376459269$main = A2(
+var author$project$Test$Generated$Main340537728$main = A2(
 	author$project$Test$Runner$Node$run,
 	{
 		paths: _List_Nil,
 		processes: 4,
 		report: author$project$Test$Reporter$Reporter$ConsoleReport(author$project$Console$Text$UseColor),
 		runs: elm$core$Maybe$Nothing,
-		seed: 169156174571654
+		seed: 201840352116771
 	},
 	elm_explorations$test$Test$concat(
 		_List_fromArray(
@@ -6350,10 +6309,10 @@ var author$project$Test$Generated$Main376459269$main = A2(
 				_List_fromArray(
 					[author$project$Tests$tests]))
 			])));
-_Platform_export({'Test':{'Generated':{'Main376459269':{'init':author$project$Test$Generated$Main376459269$main(elm$json$Json$Decode$int)(0)}}}});}(this));
+_Platform_export({'Test':{'Generated':{'Main340537728':{'init':author$project$Test$Generated$Main340537728$main(elm$json$Json$Decode$int)(0)}}}});}(this));
 return this.Elm;
 })({});
-var pipeFilename = "/tmp/elm_test-61178.sock";
+var pipeFilename = "/tmp/elm_test-61355.sock";
 // Make sure necessary things are defined.
 if (typeof Elm === "undefined") {
   throw "test runner config error: Elm is not defined. Make sure you provide a file compiled by Elm!";

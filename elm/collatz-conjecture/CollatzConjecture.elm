@@ -14,17 +14,17 @@ reduce num =
      1 ->
        0
      _ ->
-       reduce (nextNumber num) + 1
+       (reduce <| nextNumber num) + 1
 
 
 nextNumber : Int -> Int
 nextNumber num =
-  if isEven num then
+  if isOdd num then
     (3 * num) + 1
   else
     num // 2
 
 
-isEven : Int -> Bool
-isEven num =
+isOdd : Int -> Bool
+isOdd num =
   modBy 2 num == 1
