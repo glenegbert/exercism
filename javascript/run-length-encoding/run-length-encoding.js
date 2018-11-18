@@ -1,9 +1,8 @@
-const encode = (string) =>  {
+ const encode = (string) =>  {
   if (string === '') { return string };
   const a = string.split('');
-  let acc = { compressed: [], count: 0, lastChar: '' };
-  const reduced = a.reduce(compressor, acc);
-  return reduced.compressed.join('');
+  let acc = { compressed: '', count: 0, lastChar: '' };
+  return a.reduce(compressor, acc).compressed;
 };
 
 const compressor = (a, char, i, arr) => {
@@ -21,14 +20,11 @@ const compressor = (a, char, i, arr) => {
 };
 
 const updateCompressed = (a) => {
-  a.count > 1 ? a.compressed.push(a.count.toString() + a.lastChar) : a.compressed.push(a.lastChar);
+  a.count > 1 ? a.compressed += (a.count.toString() + a.lastChar) : a.compressed += (a.lastChar);
 };
 
-const decode = (string) => string.replace(/(\d+)([a-zA-Z|\s])|(\w|\s)/g, decompress)
+const decode = (string) => string.replace(/(\d+)([a-zA-Z|\s])/g, decompress)
 
-const decompress = (match, p1, p2) => {
-  if (p1 && p2) { return p2.repeat(parseInt(p1)) }
-  return match;
-}
+const decompress = (match, p1, p2) => p2.repeat(p1)
 
 export { encode, decode };
