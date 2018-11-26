@@ -1,21 +1,27 @@
 class Acronym
   def self.abbreviate(phrase)
-    abbreviator(Accumulator.new(phrase))
+    phrase.keep_if(part_of_acronym)
   end
 
-  def self.abbreviator(accum)
-    char = accum.remainder[0]
-    remainder = accum.remainder[1..-1]
-    string = accum.string
-    return accum.string if !char
-    if self.acronymable?(accum.last_char, char)
-      string += char.upcase
-    end
-    abbreviator(Accumulator.new(remainder, string, char))
+  def self.part_of_acronym
+    -> (char, last_char) { self.acronymable?(char, last_char) }
   end
 
   def self.acronymable?(last_char, char)
     !last_char || (last_char.match(/\W/) && char.match(/\w/))
+  end
+end
+
+class String
+  def keep_if(checker, accum=Accumulator.new(self))
+    char = accum.remainder[0]
+    remainder = accum.remainder[1..-1]
+    string = accum.string
+    return accum.string if !char
+    if checker.call(accum.last_char, char)
+      string += char.upcase
+    end
+    keep_if(checker, Accumulator.new(remainder, string, char))
   end
 end
 
