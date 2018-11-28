@@ -3,12 +3,17 @@ class Acronym
     phrase.keep_if(part_of_acronym)
   end
 
-  def self.part_of_acronym
-    -> (char, last_char) { self.acronymable?(char, last_char) }
-  end
+  class << self
+    private
 
-  def self.acronymable?(last_char, char)
-    !last_char || (last_char.match(/\W/) && char.match(/\w/))
+    def part_of_acronym
+      -> (char, last_char) { acronymable?(char, last_char) }
+    end
+
+
+    def acronymable?(last_char, char)
+      !last_char || (last_char.match(/\W/) && char.match(/\w/))
+    end
   end
 end
 
