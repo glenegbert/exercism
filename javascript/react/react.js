@@ -3,13 +3,28 @@ function InputCell(value) {
   this.dependencies = []
   this.setValue = (value) => {
     this.value = value;
-//    this.dependencies.forEach((d) => d.callback(d))
+    uniqueCombinedDependencies(this.dependencies).forEach(fireCallback)
+    uniqueCombinedCallbacks(this.dependencies).forEach(fireCallbacks)
+  }
+}
 
-   const deps = this.dependencies.map((d) => { return dependencyChain(d).flat()})
+function fireCallback(computeCell) {
+  computeCell.callback()
+}
 
+function fireCallbacks(callbackCell) {
+  callbackCell.dependencies.forEach( (d) => {
+    if (d.lastValue !== d.value) {
+      callbackCell.callback(d);
+    }
+  })
+}
 
-   //console.log(deps)
-   const combined = deps.sort().reduce((accum, objs, idx) => {
+function uniqueCombinedDependencies(baseDependencies) {
+  return baseDependencies
+    .map((d) => { return dependencyChain(d)})
+    .sort()
+    .reduce((accum, objs, idx) => {
       if (idx === 0) {
         return accum = objs
       } else {
@@ -17,18 +32,10 @@ function InputCell(value) {
         return accum
       }
     },[])
-    const callbacks = (callbacksChain(this.dependencies).filter((value, index, self) => self.indexOf(value) === index))
-//    this.dependencies.forEach((d) => { d.callback(d) })
-
- //   console.log(combined.filter((value,index,self) => self.indexOf(value) === index))
-    combined
-     .filter((value, index, self) => self.indexOf(value) === index).forEach((d) => { d.callback(d) })
-  console.log(callbacks)
-    callbacks.forEach((cb) => cb.dependencies.forEach((d) => {if (d.lastValue !== d.value) {cb.callback(d)}}))
-  }
+    .filter((value, index, self) => self.indexOf(value) === index);
 }
 
- function dependencyChain(dependency) {
+function dependencyChain(dependency) {
   return [dependency].concat(dependency.dependencies.reduce((accum, d) => {
       if (d.dependencies.length === 0) {
         accum.push(d)
@@ -39,34 +46,30 @@ function InputCell(value) {
       }},[]))
 }
 
-function callbacksChain(dependencies) {
+function uniqueCombinedCallbacks(dependencies) {
   return dependencies.reduce((accum, d) => {
-      if (d.dependencies.length === 0) {
-        accum.push(d.callbacks)
-        return accum.flat()
-      } else {
-        accum.push(callbacksChain(d.dependencies).flat())
-        return accum.flat()
-      }},[])
+    if (d.dependencies.length === 0) {
+      accum.push(d.callbacks)
+      return accum.flat()
+    } else {
+      accum.push(uniqueCombinedCallbacks(d.dependencies).flat())
+      return accum.flat()
+    }},[]).filter((value, index, self) => self.indexOf(value) === index);
+
 }
 
 
 function ComputeCell(inputCells, f, name) {
   this.lastValue = null
-  this.name = name
   this.dependencies = []
   this.callbacks = []
   this.addCallback = (cbc) => { this.callbacks.push(cbc)
                                 cbc.addDependency(this) }
-  this.removeCallback = (cbc) => this.callbacks = this.callbacks.filter((cb)=> cbc !== cb)
+  this.removeCallback = (cbc) =>  this.callbacks = this.callbacks.filter((cb)=> cbc !== cb)
   this.value = f(inputCells);
-  this.callback = () => {
-                         this.lastValue = this.value
-                         this.value = f(inputCells);
-                         if (this.lastValue !== this.value) {
-                          //this.dependencies.forEach((d) => d.callback(this))
-                          // this.callbacks.forEach((cb) => cb.callback(this))
-                         }}
+  this.callback = () => { this.lastValue = this.value
+                          this.value = f(inputCells);
+                         }
   inputCells.forEach((ic) => { ic.dependencies.push(this) })
 }
 

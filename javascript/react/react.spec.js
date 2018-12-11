@@ -1,25 +1,25 @@
 import { InputCell, ComputeCell, CallbackCell } from './react';
 
 describe('React module', () => {
- test('accepts input', () => {
+  test('accepts input', () => {
     const inputCell = new InputCell(10);
     expect(inputCell.value).toEqual(10);
   });
 
- test('allows input cell value to be set', () => {
+  test('allows input cell value to be set', () => {
     const inputCell = new InputCell(4);
     inputCell.setValue(20);
     expect(inputCell.value).toEqual(20);
   });
 
- test('allows setting compute cells', () => {
+  test('allows setting compute cells', () => {
     const inputCell = new InputCell(1);
     const fn = inputCells => inputCells[0].value + 1;
     const computeCell = new ComputeCell([inputCell], fn);
     expect(computeCell.value).toEqual(2);
   });
 
- test('compute cell takes inputs in correct order', () => {
+  test('compute cell takes inputs in correct order', () => {
     const inputCells = [
       new InputCell(1),
       new InputCell(2),
@@ -33,7 +33,7 @@ describe('React module', () => {
     expect(computeCell.value).toEqual(21);
   });
 
- test('compute cells update value when inputs are changed', () => {
+  test('compute cells update value when inputs are changed', () => {
     const inputCell = new InputCell(1);
     const computeCell = new ComputeCell(
       [inputCell],
@@ -44,7 +44,7 @@ describe('React module', () => {
   });
 
 
- test('compute cells can depend on other compute cells', () => {
+  test('compute cells can depend on other compute cells', () => {
     const inputCell = new InputCell(1);
     const timesTwo = new ComputeCell(
       [inputCell],
@@ -67,7 +67,7 @@ describe('React module', () => {
     expect(sum.value).toEqual(96);
   });
 
- test('compute cells fire callbacks', () => {
+  test('compute cells fire callbacks', () => {
     const inputCell = new InputCell(1);
     const output = new ComputeCell(
       [inputCell],
@@ -81,7 +81,7 @@ describe('React module', () => {
     expect(callback.values).toEqual([4]);
   });
 
- test('callbacks fire only when output values change', () => {
+  test('callbacks fire only when output values change', () => {
     const inputCell = new InputCell(1);
     const output = new ComputeCell(
       [inputCell],
@@ -99,7 +99,7 @@ describe('React module', () => {
   });
 
 
- test('callbacks can be added and removed', () => {
+  test('callbacks can be added and removed', () => {
     const inputCell = new InputCell(1);
     const output = new ComputeCell(
       [inputCell],
@@ -126,7 +126,7 @@ describe('React module', () => {
     expect(callback3.values).toEqual([42]);
   });
 
- test('removing a callback multiple times doesn\'t interfere with other callbacks', () => {
+  test('removing a callback multiple times doesn\'t interfere with other callbacks', () => {
     const inputCell = new InputCell(1);
     const output = new ComputeCell(
       [inputCell],
@@ -149,31 +149,27 @@ describe('React module', () => {
     expect(callback2.values).toEqual([3]);
   });
 
- test('callbacks should only be called once, even if multiple dependencies change', () => {
+  test('callbacks should only be called once, even if multiple dependencies change', () => {
     const inputCell = new InputCell(1);
 
     const plusOne = new ComputeCell(
       [inputCell],
       inputs => inputs[0].value + 1,
-      "plusOne"
     );
 
     const minusOne1 = new ComputeCell(
       [inputCell],
       inputs => inputs[0].value - 1,
-      "minusOne1"
     );
 
     const minusOne2 = new ComputeCell(
       [minusOne1],
       inputs => inputs[0].value - 1,
-      "minusOne2"
     );
 
     const output = new ComputeCell(
       [plusOne, minusOne2],
-      (inputs) => { return inputs[0].value * inputs[1].value },
-      "output"
+      (inputs) => { return inputs[0].value * inputs[1].value }
     );
 
     const callback1 = new CallbackCell(cell => cell.value);
@@ -184,24 +180,21 @@ describe('React module', () => {
     expect(callback1.values).toEqual([10]);
   });
 
- test('callbacks should not be called if dependencies change but output value doesn\'t change', () => {
+  test('callbacks should not be called if dependencies change but output value doesn\'t change', () => {
     const inputCell = new InputCell(1);
     const plusOne = new ComputeCell(
       [inputCell],
       inputs => inputs[0].value + 1,
-      "plusOne"
     );
 
     const minusOne = new ComputeCell(
       [inputCell],
       inputs => inputs[0].value - 1,
-      "plusTwo"
     );
 
     const alwaysTwo = new ComputeCell(
       [plusOne, minusOne],
       inputs => inputs[0].value - inputs[1].value,
-      "always2"
     );
 
 
@@ -209,9 +202,9 @@ describe('React module', () => {
     alwaysTwo.addCallback(callback);
 
     inputCell.setValue(2);
-    //inputCell.setValue(3);
-    //inputCell.setValue(4);
-    //inputCell.setValue(5);
+    inputCell.setValue(3);
+    inputCell.setValue(4);
+    inputCell.setValue(5);
 
     expect(callback.values).toEqual([]);
   });
