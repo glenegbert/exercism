@@ -169,7 +169,7 @@ describe('React module', () => {
 
     const output = new ComputeCell(
       [plusOne, minusOne2],
-      (inputs) => { return inputs[0].value * inputs[1].value }
+      inputs => inputs[0].value * inputs[1].value,
     );
 
     const callback1 = new CallbackCell(cell => cell.value);
